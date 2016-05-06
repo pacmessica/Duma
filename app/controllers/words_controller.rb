@@ -19,8 +19,9 @@ class WordsController < ApplicationController
 
   def update
     @word = Word.find(params[:id])
-
-    @word.update_attributes( known: params[:known] )
+    @word.known = params[:known] if params[:known].present?
+    @word.translation = params[:word][:translation] if params[:word][:translation].present?
+    @word.save!
     render json: 'success'
   end
 end

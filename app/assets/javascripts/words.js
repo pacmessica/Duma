@@ -1,10 +1,10 @@
 $(document).ready(function(){
-   $('h3 + p').hide();
-   $('h3').on('click', function(){
-	  $(this).next('p').toggle();
+   $('.word-name').on('click', function(){
+     $(this).next('.translation-form').toggle();
    });
+   $('.translation-form').hide();
 
-   $('button').on('click', function(){
+   $('#add-to-known').on('click', function(){
      var wordId = this.dataset.wordid;
      var button = this;
      $.ajax({
@@ -21,4 +21,5 @@ $(document).ready(function(){
       contentType: "application/json",
       dataType: "json"});
    });
+
 });

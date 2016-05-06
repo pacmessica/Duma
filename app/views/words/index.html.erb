@@ -1,0 +1,30 @@
+<section class="container words">
+  <div class="row text-center">
+    <h1>Your study words</h1>
+  </div>
+
+  <% @words.each do |word| %>
+  <div class="word-box">
+    <div class="row">
+      <div class="col-xs-3">&nbsp;</div>
+
+      <div class="col-xs-3">
+        <span class='word-name'><%= word.name %></span>
+        <span class="translation-form">
+          <%= form_for word, remote: true do |f| %>
+              <%= f.label :translation %>
+              <%= f.text_field :translation %>
+              <button id="update" data-wordid="<%= word.id %>">Update</button>
+          <% end %>
+        </span>
+      </div>
+
+      <div class="col-xs-3">
+        <button id="add-to-known" data-wordid="<%= word.id %>">Add to known words</button>
+      </div>
+
+      <div class="col-xs-3">&nbsp;</div>
+    </div>
+  </div>
+  <% end %>
+</section>
