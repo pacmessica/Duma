@@ -7,8 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <%= render "/share/header" %>
+  <% if current_user.present? %>
+    <%= render "/share/header" %>
+  <%end%>
 
   <div class = "container-fluid"><%= yield %></div>
 
