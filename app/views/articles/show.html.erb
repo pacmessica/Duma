@@ -1,1 +1,16 @@
-<h1>show page<h1>
+
+<% new_words = 0 %>
+<% known_words = 0 %>
+<% study_words = 0 %>
+
+<p>
+<%= @article.content.split(" ").each do |word| %>
+  <% if Word.where( name:word).exists? %>
+    <%= word %>
+
+  <% else %>
+    <%= word %>
+    <% new_words += 1 %>
+  <%end%>
+<%end%>
+</p>
