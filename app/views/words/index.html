@@ -1,0 +1,27 @@
+<section class="container">
+  <div class="row text-center">
+    <h1>Your study words</h1>
+  </div>
+
+  <% @study_words.each do |study_word| %>
+    <div class="row">
+      <div class="col-xs-1">&nbsp;</div>
+
+      <div class="col-xs-4">
+        <h3><%= study_word.name %></h3>
+        <p><%= study_word.translation %></p>
+      </div>
+
+      <div class="col-xs-3">
+        <button>Add to known words</button>
+      </div>
+
+      <div class="col-xs-3">
+        <p>Edit translation</p>
+      </div>
+
+      <div class="col-xs-1">&nbsp;</div>
+    </div>
+  <% end %>
+
+</section>
