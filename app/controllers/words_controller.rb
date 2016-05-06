@@ -22,6 +22,7 @@ class WordsController < ApplicationController
     @word.known = params[:known] if params[:known].present?
     @word.translation = params[:word][:translation] if params[:word][:translation].present?
     @word.save!
+    @word.update_attributes( known: params[:known] )
     render json: 'success'
   end
 end

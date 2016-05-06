@@ -6,3 +6,19 @@
 .study-word {
   color: #B23835;
 }
+
+.word:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.translation {
+  position: fixed;
+  background-color: white;
+  display:block;
+  z-index:1;
+  font-size: 25px;
+  padding: 10px;
+  top: 0;
+  right: 0;
+}
