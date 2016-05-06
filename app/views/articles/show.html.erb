@@ -1,16 +1,32 @@
 
+<h2><%= @article.title %></h2>
+
+
 <% new_words = 0 %>
 <% known_words = 0 %>
 <% study_words = 0 %>
 
-<p>
-<%= @article.content.split(" ").each do |word| %>
-  <% if Word.where( name:word).exists? %>
-    <%= word %>
-
+<article>
+<% @article.content.split(" ").each do |word| %>
+  <% if result = Word.find_by(name:word.downcase) %>
+    <% if result.known %>
+      <span><%= word %></span>
+      <% known_words += 1 %>
+    <% else %>
+      <span class="study-word"><%= word %></span>
+      <% study_words += 1 %>
+    <%end%>
   <% else %>
-    <%= word %>
+    <span><%= word %></span>
     <% new_words += 1 %>
-  <%end%>
+  <%end%>    
 <%end%>
-</p>
+</article>
+
+<p> New Words: <%= new_words %> Known Words: <%= known_words %> </p>
+<!--
+<div class="footer">
+  New Words: <span id="new_words-count">1</span> •
+  Known Words: <span id="known_words-count">0</span> •
+  My Study Words: <span id="study_words-count">1</span> •
+</div> -->
