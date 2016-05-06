@@ -33,8 +33,9 @@ class ArticlesController < ApplicationController
     article_params = params.require( :article ).permit( :title, :content, :image )
 
     if @article.update_attributes( article_params )
-     redirect_to @article
-   else
-     render 'edit'
-   end
+      redirect_to @article
+    else
+      render 'edit'
+    end
+  end
 end
