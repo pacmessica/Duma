@@ -3,14 +3,22 @@
 <% known_words = 0 %>
 <% study_words = 0 %>
 
-<p>
-<%= @article.content.split(" ").each do |word| %>
+<article>
+<% @article.content.split(" ").each do |word| %>
   <% if Word.where( name:word).exists? %>
-    <%= word %>
+    <span><%= word %></span>
 
   <% else %>
-    <%= word %>
+    <span style="color:red" class="study-word"><%= word %></span>
     <% new_words += 1 %>
   <%end%>
 <%end%>
-</p>
+</article>
+
+<p> New Words: <%= new_words %> </p>
+<!--
+<div class="footer">
+  New Words: <span id="new_words-count">1</span> •
+  Known Words: <span id="known_words-count">0</span> •
+  My Study Words: <span id="study_words-count">1</span> •
+</div> -->
