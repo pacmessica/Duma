@@ -1,0 +1,15 @@
+
+<% @articles.each do |article| %>
+<div class = "all-btn">
+  <button class = "art-button">
+    <%= image_tag article.image, class: "img-title" %>
+    <%= article.title %>
+      <div class = "txt-word">
+        <soan>Known Words:</span>
+        <span><%= article.words.known_words.size %></span>
+        <soan>Study Words:</span>
+        <span><%= article.words.study_words.size %></span>
+      </div>
+  </button>
+</div>
+<% end %>
