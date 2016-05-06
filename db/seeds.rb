@@ -28,3 +28,9 @@ users.each do |user|
     end
   end
 end
+
+users.each do |user|
+  5.times do
+    article = Article.create(content:Faker::Lorem.paragraph, title:Faker::Lorem.sentence, image:Faker::Avatar.image ,user: user)
+  end
+end
