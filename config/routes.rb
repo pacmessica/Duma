@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "articles#index"
   devise_for :users
   resources :words
-  resources :articles
-  resources :tags
+  resources :articles do
+    resources :tags
+  end
 end
