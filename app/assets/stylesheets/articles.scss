@@ -22,7 +22,17 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+<<<<<<< HEAD
 .add-article-form input:focus {
+=======
+
+.add-article-form {
+  background-color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+>>>>>>> master
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -54,4 +64,14 @@
 
 label .new-article-content {
   margin-top: -50px;
+}
+
+.article-container {
+  background-color: white;
+  padding: 30px 30px 40px 30px;
+}
+
+.art-body {
+  padding-bottom: 30px;
+  padding-top: 15px;
 }
