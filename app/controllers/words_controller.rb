@@ -11,6 +11,13 @@ class WordsController < ApplicationController
   end
 
   def create
+    word_params = params.require( :word ).permit( :name, :translation, :known )
+    @word = Word.new(word_params)
+    if @word.save
+      render json: { word: @word }
+    else
+      render json: { errors: @word.errors, status: :unprocessable_entity }
+    end
   end
 
   def edit
