@@ -50,8 +50,8 @@ max-height: 100%;
  // LOGO
  #company_logo{
   margin-top: 40px;
-  width:199px;
-  height:50px;
+  width:188px;
+  height:66px;
   background-image: url("DUMA-logo.png");
   background-size: cover;
   display: inline-block;
@@ -88,6 +88,8 @@ max-height: 100%;
   background-color: white;
   margin: auto;
   overflow: scroll;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 .tags{
@@ -102,11 +104,12 @@ max-height: 100%;
 .btn-newtext{
   max-width: 100%;
   max-height: 100%;
-  width: 1000px;
+  width: 200px;
   height: 50px;
-  background-color: red;
   margin: auto;
-  margin-top: 10px;
+  background-color: #99e600;
+  border-radius: 10px;
+  direction: none;
 }
 
 .nav-container{
@@ -125,6 +128,7 @@ max-height: 100%;
 
 .bg-container.nav-menu-closed .nav-menu{
   margin-left: -160px;
+
 }
 
 .nav-menu{
