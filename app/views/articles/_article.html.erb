@@ -1,6 +1,4 @@
-<div class = "bg-container">
-<%= render '/tags/index' %>
-  <% @articles.each do |article| %>
+<% @articles.each do |article| %>
   <div class = "all-btn">
     <button class = "art-button">
       <%= image_tag article.image, class: "img-title" %>
@@ -13,9 +11,4 @@
         </div>
     </button>
   </div>
-  <% end %>
-</div>
-
-<div class="under-container">
-
-</div>
+<% end %>

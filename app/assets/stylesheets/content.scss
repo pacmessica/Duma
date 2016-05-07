@@ -16,12 +16,11 @@ background-size: cover;
 }
 .art-button{
 border: none;
-margin: auto;
 background: white;
 padding: 40px 30px 40px 30px;
 font-size: 17px;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-width: 700px;
+width: 829px;
 max-width: 100%;
 height: 150px;
 max-height: 100%;
@@ -50,12 +49,12 @@ max-height: 100%;
 }
  // LOGO
  #company_logo{
-// margin: 10px 10px 10px 10px;
-width:199px;
-height:50px;
-background-image: url("DUMA-logo.png");
-background-size: cover;
-display: inline-block;
+  margin-top: 40px;
+  width:199px;
+  height:50px;
+  background-image: url("DUMA-logo.png");
+  background-size: cover;
+  display: inline-block;
  }
  // HEADER
  .header{
@@ -65,14 +64,15 @@ display: inline-block;
  }
 
  .ul-style {
-   list-style-type: none;
+   position: absolute;
+   right: 270px;
+    list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
  }
 .li-style{
-  float: right;;
-  display: block;
+  display: inline;
   text-align: center;
   padding: 14px 16px;
   color: black;
@@ -80,28 +80,74 @@ display: inline-block;
 }
 
 .bg-container{
-max-width: 100%;
-max-height: 100%;
-width: 1000px;
-height: 550px;
-background-color: white;
-margin: auto;
-overflow: scroll;
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  width: 1000px;
+  height: 550px;
+  background-color: white;
+  margin: auto;
+  overflow: scroll;
 }
 
 .tags{
-  background-color: blue;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100px;
-  height: 200px;
+  min-height: 200px;
   max-width: 100%;
 }
 
-.under-container{
+.btn-newtext{
   max-width: 100%;
   max-height: 100%;
   width: 1000px;
   height: 50px;
-  background-color: white;
+  background-color: red;
   margin: auto;
   margin-top: 10px;
+}
+
+.nav-container{
+  overflow: hidden;
+  position: absolute;
+  width: 200px;
+  top:0;
+  bottom: 0;
+  left:0;
+}
+
+.content-container{
+  margin-left: 160px;
+  transition: margin-left .5s ease;
+}
+
+.bg-container.nav-menu-closed .nav-menu{
+  margin-left: -160px;
+}
+
+.nav-menu{
+  position: relative;
+  margin-left: 0;
+  width: 160px;
+  height:500px;
+  background: #eee;
+  transition: margin-left .5s ease;
+}
+
+
+
+.bg-container.nav-menu-closed .content-container{
+  margin-left: 0px;
+}
+
+.nav-toggle{
+  position: absolute;
+  right: -30px;
+  top: 0px;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  background-color: red;
 }

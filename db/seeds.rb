@@ -2,6 +2,18 @@ Word.destroy_all
 Article.destroy_all
 User.destroy_all
 
+tags = [
+  "fun",
+  "human body",
+  "nature",
+  "favorites",
+  "politic"
+]
+
+tags.each do |tag_name|
+   tag = Tag.create( name: tag_name )
+end
+
 users = [
   User.create( email: "iulia@ex.com", password: "abcd1234" ),
   User.create( email: "glory@ex.com", password: "abcd1234" ),
@@ -10,7 +22,7 @@ users = [
 
 users.each do |user|
   5.times do
-    article = Article.create(content:Faker::Lorem.paragraph, title:Faker::Lorem.sentence, image:Faker::Avatar.image ,user: user)
+    article = Article.create(content:Faker::Lorem.paragraph, title:Faker::Lorem.sentence, image:Faker::Avatar.image ,user: user )
     article.content.split(" ").each do |word|
       word.downcase!
       if Word.where( name:word).where(user:user).exists?

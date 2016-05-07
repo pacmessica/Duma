@@ -1,7 +1,13 @@
-<div class = "tags">
-<% @tags.each do |tag| %>
 
-<%= tag.name %>
-
-<% end %>
+<div class = "nav-container">
+  <div class = "nav-menu">
+    <div class = "nav-toggle"></div>
+    <div class = "tags">
+      <% @tags.each do |tag| %>
+        <button type="button" name="button">
+        <%= tag.name %>
+        </button>
+      <% end %>
+    </div>
+  </div>
 </div>
