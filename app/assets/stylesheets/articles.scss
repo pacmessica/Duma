@@ -3,32 +3,55 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.study-word {
-  color: #B23835;
-}
-
-.word:hover {
-  background-color: #eee;
-  cursor: pointer;
-}
-
-.translation {
-  position: fixed;
-  background-color: white;
-  display:block;
-  z-index:1;
-  font-size: 25px;
-  padding: 10px;
-  top: 0;
-  right: 0;
-}
-
 .add-article-form {
   background-color: white;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   padding-top: 40px;
   padding-bottom: 40px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px;
+}
+
+.add-article-form .text-center {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.add-article-form input:focus {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.add-article-form input:focus {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.add-article-form .image {
+  margin-left: -53px;
+}
+
+.add-article-form .content {
+  margin-left: -39px;
+}
+
+.add-article-form .source {
+  margin-left: -32px;
+}
+
+.new-article-btn {
+  background-color: #99e600;
+  color: black;
+  padding: 7px 40px 7px 40px;
+  border-radius: 10px;
+  font-size: 17px;
+  margin-left: 30px;
+}
+
+.new-article-btn:hover {
+  background-color: #558000;
+  color: white;
+}
+
+label .new-article-content {
+  margin-top: -50px;
 }
