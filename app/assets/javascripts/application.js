@@ -15,3 +15,8 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+$(document).ready(function(){
+  $(".nav-toggle").click(function(){
+    $(".bg-container").toggleClass("nav-menu-closed");
+  });
+});

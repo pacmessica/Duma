@@ -1,11 +1,20 @@
 
 <div class="article-container">
 
+<<<<<<< HEAD
 <h2 class="art-header"><%= @article.title %></h2>
 
 <!--
 <% words = {} %>
 <% @article.content.split(/\W+/).each do |word| %>
+=======
+<% new_words = 0 %>
+<% known_words = 0 %>
+<% study_words = 0 %>
+
+<article>
+<% @article.content.split(" ").each do |word| %>
+>>>>>>> step-three
   <% if result = Word.find_by(name:word.downcase) %>
     <% if result.known %>
       <% words[result.name] = result.id %>
@@ -31,7 +40,12 @@
       <div class="translation"><%= result.translation %></div>
     <%end%>
   <% else %>
+<<<<<<< HEAD
     <span class="word new-word"><%= word %></span>
+=======
+    <span><%= word %></span>
+    <% new_words += 1 %>
+>>>>>>> step-three
   <%end%>
 <%end%>
 </article>
