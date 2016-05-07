@@ -2,7 +2,9 @@
 @import "bootstrap";
 
 body {
-  background: #efefef;
+background: url("BG-img-01.jpg") no-repeat center center fixed;
+background-size: cover;
+
 }
 .all-btn{
  left: 0;
@@ -10,6 +12,7 @@ body {
  width: 100%;
  text-align: center;
  font-size: 18px;
+
 }
 .art-button{
 border: none;
@@ -22,6 +25,8 @@ width: 500px;
 max-width: 100%;
 height: 150px;
 max-height: 100%;
+-webkit-flex: 3;
+-webkit-flex-direction: column;
 }
 
 .art-button:hover {
@@ -43,4 +48,63 @@ max-height: 100%;
   font-size: 10px;
   color: red;
 
+}
+ // LOGO
+ #company_logo{
+// margin: 10px 10px 10px 10px;
+width:199px;
+height:50px;
+background-image: url("DUMA-logo.png");
+background-size: cover;
+display: inline-block;
+ }
+ // HEADER
+ .header{
+   width: 1000px;
+   max-width: 100%;
+   margin: auto;
+ }
+
+ .ul-style {
+   list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+ }
+.li-style{
+  float: right;;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  color: black;
+  text-decoration: none;
+}
+
+.bg-container{
+max-width: 100%;
+max-height: 100%;
+width: 1000px;
+height: 550px;
+background-color: white;
+margin: auto;
+overflow: scroll;
+display: flex;
+}
+
+.tags{
+  background-color: blue;
+  width: 100px;
+  height: 600px;
+  max-width: 100%;
+  -webkit-flex: 2;
+}
+
+.under-container{
+  max-width: 100%;
+  max-height: 100%;
+  width: 1000px;
+  height: 50px;
+  background-color: white;
+  margin: auto;
+  margin-top: 10px;
 }
