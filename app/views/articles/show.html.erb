@@ -25,7 +25,7 @@
     <span><%=word%></span>
   <% elsif result = Word.find_by(name:word.downcase) %>
     <% if result.known %>
-      <span class="word known-word" data-wordid="<%= result.id %>"><%= word %></span>
+      <span class="word known-word" data-wordid="<%= result.id %>" data-translation="<%= result.translation %>" ><%= word %></span>
     <% else %>
       <span class="word study-word" data-wordid="<%= result.id %>"><%= word %></span>
       <div class="translation"><%= result.translation %></div>
@@ -43,3 +43,8 @@
 </div>
 
 </div>
+
+<!-- <script>
+$(".study-word").bind("click", toggleStudyKnownWord);
+
+</script> -->

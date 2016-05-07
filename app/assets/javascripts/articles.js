@@ -1,6 +1,12 @@
 
 function updateCounters() {
-  console.log("updating...")
+  var study_words = $(".study-word").map(function(index, element){
+    // console.log(element.innerHTML)
+    return element.innerHTML.toLowerCase();
+  });
+  console.log(study_words)
+  study_words = jQuery.unique( study_words );
+  console.log(study_words.length)
   $("#study-words-count").html($(".study-word").length);
   $("#known-words-count").html($(".known-word").length);
   $("#new-words-count").html($(".word").length - $(".study-word").length - $(".known-word").length);
@@ -8,10 +14,14 @@ function updateCounters() {
 
 
 function toggleStudyKnownWord(){
-  console.log(this)
   var wordId = this.dataset.wordid;
+  var wordTranslation = this.dataset.translation;
   var element = this;
   var known = element.classList.contains("known-word");
+
+  if (wordTranslation == "") {
+    prompt("please enter translation for " + element.innerHTML);
+  }
 
   $.ajax({
     type: "PATCH",
