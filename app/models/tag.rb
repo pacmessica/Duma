@@ -1,4 +1,4 @@
 class Tag < ActiveRecord::Base
   has_many :texts
-  belong_to :user
+  belongs_to :articles
 end
