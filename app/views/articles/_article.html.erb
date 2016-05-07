@@ -1,8 +1,5 @@
 <div class = "bg-container">
-  <div class = "tags">
-
-  </div>
-
+<%= render '/articles/aside' %>
   <% @articles.each do |article| %>
   <div class = "all-btn">
     <button class = "art-button">
@@ -11,7 +8,7 @@
         <div class = "txt-word">
           <soan>Known Words:</span>
           <span><%= article.words.known_words.size %></span>
-          <soan>Study Words:</span>
+          <span>Study Words:</span>
           <span><%= article.words.study_words.size %></span>
         </div>
     </button>
