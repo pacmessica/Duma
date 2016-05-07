@@ -1,19 +1,55 @@
 // Place all the styles related to the Words controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
 .word-box {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  background-color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding-top: 40px;
   padding-bottom: 40px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+
+.text-center h1 {
+  margin-bottom: 20px;
+}
+
+.col-xs-3 .word-name {
+  font-size: 25px;
+  margin-top: 20px;
+  margin-left: -80px;
+}
+
+.col-xs-3 .word-name:hover {
+  color: #99e600;
+}
+
+form .translation-form {
+  margin-top: 50px;
 }
 
 #update {
   margin-top: 10px;
-  margin-left: -30px;
+  margin-left: 40px;
+  padding: 7px 40px 7px 40px;
 }
 
 .col-xs-3 {
   text-align: center;
+}
+
+button {
+  background-color: #99e600;
+  color: black;
+  padding: 7px 40px 7px 40px;
+  border-radius: 10px;
+  font-size: 17px;
+}
+
+button:hover {
+  background-color: #558000;
+  color: white;
 }

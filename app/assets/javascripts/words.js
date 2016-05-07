@@ -4,16 +4,17 @@ $(document).ready(function(){
    });
    $('.translation-form').hide();
 
-   $('#add-to-known').on('click', function(){
+   $('.add-to-known').on('click', function(){
      var wordId = this.dataset.wordid;
      var button = this;
      $.ajax({
       type: "PATCH",
       async: true,
       complete: function(result) {
-        console.log(result)
+        console.log(result);
         if ( result.responseText === 'success' ) {
-          console.log($(button).parent().parent().remove());
+          console.log("test");
+          $(button).closest('.word-box').remove();
         }
       },
       url: "/words/"+ wordId,
