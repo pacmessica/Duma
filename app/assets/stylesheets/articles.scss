@@ -2,6 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.study-word {
+ color: #B23835 ;
+}
+
+.word:hover {
+ background-color: #eee;
+ cursor: pointer;
+}
+
+.translation {
+ position: fixed;
+ background-color: white;
+ display:block;
+ z-index:1;
+ font-size: 25px;
+ padding: 10px;
+ top: 0;
+ right: 0;
+}
 
 .add-article-form {
   background-color: white;
@@ -19,6 +38,10 @@
 }
 
 .add-article-form input:focus {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.add-article-form textarea:focus {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -61,12 +84,49 @@ label .new-article-content {
   margin-top: -50px;
 }
 
-.article-container {
+.article-show {
   background-color: white;
-  padding: 30px 30px 40px 30px;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 40px 100px 60px 100px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  background-color: white;
+}
+
+.article-show h1 {
+  margin-bottom: 30px;
 }
 
 .art-body {
-  padding-bottom: 30px;
+  padding-bottom: 50px;
   padding-top: 15px;
+}
+
+.article-show span {
+  font-size: 22px;
+}
+
+.article-show span:hover {
+  background-color: #cccccc;
+  border-radius: 3px;
+  padding: 2px;
+}
+
+.article-show .art-footer {
+  font-size: 22px;
+}
+
+.article-show .study-word {
+  color: #99e600;
+}
+
+.article-show .study-word:hover {
+  color: white;
+}
+
+.translation {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  background-color: white;
+  margin-top: 550px;
+  margin-right: 900px;
 }

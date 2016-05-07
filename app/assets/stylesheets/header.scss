@@ -1,0 +1,11 @@
+.li-style a {
+  color: black;
+  text-transform: uppercase;
+}
+
+.li-style a:hover {
+  background-color: white;
+  text-decoration: none;
+  padding: 7px 40px 7px 40px;
+  border-radius: 10px;
+}
