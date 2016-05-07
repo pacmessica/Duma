@@ -1,51 +1,51 @@
 
-<div class="article-container">
-
-<h2 class="art-header"><%= @article.title %></h2>
-
-<!--
-<% words = {} %>
-<% @article.content.split(/\W+/).each do |word| %>
-  <% if result = Word.find_by(name:word.downcase) %>
-    <% if result.known %>
-      <% words[result.name] = result.id %>
+<section class="container article-show">
+  <div class="row text-center">
+    <h2 class="art-header"><%= @article.title %></h2>
+  </div>
+    <!--
+    <% words = {} %>
+    <% @article.content.split(/\W+/).each do |word| %>
+      <% if result = Word.find_by(name:word.downcase) %>
+        <% if result.known %>
+          <% words[result.name] = result.id %>
+        <%end%>
+      <%end%>
     <%end%>
-  <%end%>
-<%end%>
- <%= words %>
- -->
+     <%= words %>
+     -->
 
 
 
 
-
-<article class="art-body">
-<% @article.content.split(/\b/).each do |word| %>
-  <% if word.match(/\W/) %>
-    <span><%=word%></span>
-  <% elsif result = Word.find_by(name:word.downcase) %>
-    <% if result.known %>
-      <span class="word known-word" data-wordid="<%= result.id %>" data-translation="<%= result.translation %>" ><%= word %></span>
-      <div class="translation"><%= result.translation %></div>
-    <% else %>
-      <span class="word study-word" data-wordid="<%= result.id %>" data-translation="<%= result.translation %>"><%= word %></span>
-      <div class="translation"><%= result.translation %></div>
+  <div class="row text-center">
+    <article class="art-body">
+    <% @article.content.split(/\b/).each do |word| %>
+      <% if word.match(/\W/) %>
+        <span><%=word%></span>
+      <% elsif result = Word.find_by(name:word.downcase) %>
+        <% if result.known %>
+          <span class="word known-word" data-wordid="<%= result.id %>" data-translation="<%= result.translation %>" ><%= word %></span>
+          <div class="translation"><%= result.translation %></div>
+        <% else %>
+          <span class="word study-word" data-wordid="<%= result.id %>" data-translation="<%= result.translation %>"><%= word %></span>
+          <div class="translation"><%= result.translation %></div>
+        <%end%>
+      <% else %>
+        <span class="word new-word"><%= word %></span>
+          <div class="translation"></div>
+      <%end%>
     <%end%>
-  <% else %>
-    <span class="word new-word"><%= word %></span>
-      <div class="translation"></div>
-  <%end%>
-<%end%>
 
-</article>
+    </article>
 
-<div class="art-footer">
-  New Words: <span id="new-words-count">1</span> •
-  Known Words: <span id="known-words-count">0</span> •
-  My Study Words: <span id="study-words-count">1</span> •
-</div>
-
-</div>
+    <div class="art-footer">
+      New Words: <span id="new-words-count">1</span> •
+      Known Words: <span id="known-words-count">0</span> •
+      My Study Words: <span id="study-words-count">1</span> •
+    </div>
+  </div>
+</section>
 
 <!-- <script>
 $(".study-word").bind("click", toggleStudyKnownWord);
