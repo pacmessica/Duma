@@ -8,4 +8,5 @@ class Word < ActiveRecord::Base
   def self.known_words
     where(known: true)
   end
+
 end
