@@ -8,26 +8,26 @@ function updateCounters() {
 
 
 function toggleStudyKnownWord(){
+  console.log(this)
+  var wordId = this.dataset.wordid;
+  var element = this;
+  var known = element.classList.contains("known-word");
 
-    var wordId = this.dataset.wordid;
-    var element = this;
-    var known = element.classList.contains("known-word");
-
-    $.ajax({
-       type: "PATCH",
-       complete: function(result) {
-         if ( result.responseText === 'success' ) {
-           element.classList.toggle("study-word");
-           element.classList.toggle("known-word");
-         }
-       },
-       url: "/words/"+ wordId,
-       data: JSON.stringify({ known: !known }),
-       contentType: "application/json",
-       dataType: "json"
-     });
-
-     updateCounters();
+  $.ajax({
+    type: "PATCH",
+    complete: function(result) {
+      if ( result.responseText === 'success' ) {
+        $('[data-wordid=' + wordId + ']')
+          .toggleClass("study-word")
+          .toggleClass("known-word");
+      }
+      updateCounters();
+    },
+    url: "/words/"+ wordId,
+    data: JSON.stringify({ known: !known }),
+    contentType: "application/json",
+    dataType: "json"
+  });
 };
 
 
