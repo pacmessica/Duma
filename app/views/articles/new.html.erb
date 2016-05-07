@@ -1,0 +1,32 @@
+<section class="container add-article-form">
+  <div class="row text-center">
+    <h1>Add a new text</h1>
+  </div>
+
+    <%= form_for [@article] do |f| %>
+      <div class="row text-center field">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+
+      <div class="row text-center field">
+        <%= f.label :image %>
+        <%= f.text_field :image %>
+      </div>
+
+      <div class="row text-center field">
+        <%= f.label :content %>
+        <%= f.text_field :content %>
+      </div>
+
+      <div class="row text-center field">
+        <%= f.label :source %>
+        <%= f.text_field :source %>
+      </div>
+
+      <div class="row text-center new-article-btn">
+        <%= f.submit "Add" %>
+      </div>
+
+    <% end %>
+</section>
