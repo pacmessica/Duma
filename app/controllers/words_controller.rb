@@ -12,6 +12,7 @@ class WordsController < ApplicationController
 
   def create
     word_params = params.require( :word ).permit( :name, :translation, :known )
+    word_params[:user] = current_user
     @word = Word.new(word_params)
     if @word.save
       render json: { word: @word }
