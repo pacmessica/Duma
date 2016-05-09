@@ -138,5 +138,5 @@ new_article =
   }}
 
 users.each do |user|
-  article = Article.create(title:new_article[:title], content:new_article[:content], image:new_article[:image], user: new_article[user])
+  article = Article.create(title:new_article[:title], content:new_article[:content], image:new_article[:image], user: user)
 end
