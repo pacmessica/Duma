@@ -145,7 +145,7 @@ function removeWordListeners(){
   $('.add-remaining-to-known').off('click', addRemaingWordsToKnown);
 }
 
-$(document).ready(function() {
+$(document).on("page:load", function() {
   $('.translation').hide();
   addWordListeners();
   updateCounters();
