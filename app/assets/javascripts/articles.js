@@ -57,8 +57,9 @@ function toggleStudyKnownWord(){
   var known = element.classList.contains("known-word");
   console.log("toggled:", wordId)
 
-  if (wordTranslation == "") {
-    var wordTranslation = prompt("please enter translation for " + element.innerHTML);
+  var wordTranslation = prompt("please enter translation for " + element.innerHTML);
+  if (wordTranslation === "" || wordTranslation === null) {
+    wordTranslation = prompt("you didn't entered any translation.\n please enter translation for " + element.innerHTML);
   }
 
   $.ajax({

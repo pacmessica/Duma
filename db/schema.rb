@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20160509091404) do
   add_foreign_key "articles", "users"
   add_foreign_key "articles_tags", "articles"
   add_foreign_key "articles_tags", "tags"
+  add_foreign_key "tags", "articles"
   add_foreign_key "tags", "users"
   add_foreign_key "words", "users"
 end
