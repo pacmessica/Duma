@@ -1,6 +1,6 @@
 class WordsController < ApplicationController
   def index
-    @words = Word.study_words.order(name: :asc)
+    @words = current_user.words.study_words.order(name: :asc)
   end
 
   def show
@@ -12,6 +12,7 @@ class WordsController < ApplicationController
 
   def create
     word_params = params.require( :word ).permit( :name, :translation, :known )
+    word_params[:user] = current_user
     @word = Word.new(word_params)
     if @word.save
       render json: { word: @word }

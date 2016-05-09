@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article .order(created_at: :desc)
+    @articles = current_user.articles.order(created_at: :desc)
     @tags = Tag.all
   end
 
@@ -15,7 +15,6 @@ class ArticlesController < ApplicationController
 
   def create
     article_params = params.require( :article ).permit( :title, :content, :image )
-
     @article = Article.new( article_params )
 
     if @article.save
