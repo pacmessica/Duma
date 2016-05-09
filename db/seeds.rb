@@ -32,7 +32,8 @@ known_article = {
   But many are still stuck north of Fort McMurray and evacuations by road and air are resuming.
   More than 80,000 people were evacuated from the city earlier this week.
   Thousands of people have been airlifted out but a mass convoy evacuating people from oil worker camps in the north was halted on Friday as huge flames flanked the road.
-  }
+},
+tags: "nature, disaster, canada, news"
 }
 
 users.each do |user|
@@ -43,6 +44,13 @@ users.each do |user|
     else
       Word.create(name:word, known:true, user:user)
     end
+  end
+  known_article[:tags].split(", ").each do |name|
+    if tag = Tag.find_by( name: name)
+    else
+      tag = Tag.create( name: name)
+    end
+    ArticlesTags.create( tag: tag, article: article )
   end
 end
 
@@ -67,7 +75,9 @@ articles = [
     Mr Duterte has run a campaign focused on law and order issues, but made many controversial statements, including saying that he would butcher criminals.
     A former state prosecutor nicknamed "The Punisher", he has been mayor of the southern city of Davao for more than 22 years.
     He recently joked that, as mayor, he should have been first to rape an Australian missionary murdered in a prison riot, but he later apologised.
-    }],
+    },
+    "politic, asia, news"
+    ],
   [ "John Oliver Explained Special Districts, SNL Explained Racists for Donald Trump",
     "https://cdn-images-1.medium.com/max/800/0*EoxYi7Zedj1CfHXP.jpg",
     "https://filmschoolrejects.com/john-oliver-explained-special-districts-snl-explained-racists-for-donald-trump-a89a49aace3#.tlvugjuf8",
@@ -78,12 +88,14 @@ articles = [
     In his big monologue this week, John Oliver took a break from lambasting Donald Trump to explain the small, powerful and insanely under the radar concept of Special Districts:
     Saturday Night Live
     Only a few months after allowing Donald Trump to host one of their episodes, Saturday Night Live finally turned on the Republican Presidential front-runner with a sketch that was cut from this weekend’s show. The political ad spoof features Americans (played by Taran Killam, Vanessa Bayer, Bobby Moynihan, Aidy Bryant, Beck Bennett, and Kyle Mooney) explaining why they support Donald Trump. Some view this as too little, too late for SNL, which basically made a mockery of its show for an entire week pandering to the then joke candidate. But now that Trump’s candidacy has risen from “this is hilarious” to “the seventh seal is opening,” everyone is coming to their senses and going on the attack. Even SNL.
-    }]
+    },
+    "trump, elections, usa"
+  ]
 ]
 
 
 users.each do |user|
-  articles.each do |title, image, source, content|
+  articles.each do |title, image, source, content, tags|
     article = Article.create(content:content, title:title, image:image, user: user)
     article.content.split(/\W+/).each do |word|
       word.downcase!
@@ -91,6 +103,13 @@ users.each do |user|
       else
         Word.create(name:word, known:false, translation:Faker::Hacker.noun, user:user)
       end
+    end
+    tags.split(", ").each do |name|
+      if tag = Tag.find_by( name: name)
+      else
+        tag = Tag.create( name: name)
+      end
+      ArticlesTags.create( tag: tag, article: article )
     end
   end
 end
