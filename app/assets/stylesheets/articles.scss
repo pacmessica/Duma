@@ -113,7 +113,7 @@ label .new-article-content {
 .article-show span:hover {
   background-color: #cccccc;
   border-radius: 3px;
-  padding: 2px;
+  padding: 1px;
 }
 
 .article-show .art-footer {
@@ -131,10 +131,7 @@ label .new-article-content {
 .translation {
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  background-color: white;
-  margin-top: 550px;
-  margin-right: 900px;
-}
-
-promptBox {
-  background-color: green;
+  margin-top: 185px;
+  margin-right: 160px;
+  position: fixed;
 }
