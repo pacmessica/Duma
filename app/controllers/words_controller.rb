@@ -1,6 +1,6 @@
 class WordsController < ApplicationController
   def index
-    @words = Word.study_words.order(name: :asc)
+    @words = current_user.words.study_words.order(name: :asc)
   end
 
   def show
