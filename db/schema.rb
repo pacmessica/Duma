@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507104941) do
+ActiveRecord::Schema.define(version: 20160509091404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,12 +29,15 @@ ActiveRecord::Schema.define(version: 20160507104941) do
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
-  create_table "articles_tags", id: false, force: :cascade do |t|
-    t.integer "article_id"
-    t.integer "tag_id"
+  create_table "articles_tags", force: :cascade do |t|
+    t.integer  "article_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "articles_tags", ["article_id", "tag_id"], name: "index_articles_tags_on_article_id_and_tag_id", using: :btree
+  add_index "articles_tags", ["article_id"], name: "index_articles_tags_on_article_id", using: :btree
+  add_index "articles_tags", ["tag_id"], name: "index_articles_tags_on_tag_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
@@ -74,7 +77,8 @@ ActiveRecord::Schema.define(version: 20160507104941) do
   add_index "words", ["user_id"], name: "index_words_on_user_id", using: :btree
 
   add_foreign_key "articles", "users"
-  add_foreign_key "tags", "articles"
+  add_foreign_key "articles_tags", "articles"
+  add_foreign_key "articles_tags", "tags"
   add_foreign_key "tags", "users"
   add_foreign_key "words", "users"
 end
