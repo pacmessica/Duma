@@ -48,7 +48,6 @@ function createStudyWord(){
   });
 }
 
-
 function toggleStudyKnownWord(){
   $('.translation').hide();
   var wordId = this.dataset.wordid;
@@ -81,8 +80,40 @@ function toggleStudyKnownWord(){
   });
 };
 
+function createKnownWord(word){
+  var element = word;
+  var newKnownWord = { name: element.innerHTML.toLowerCase(), known: true }
+  $.ajax({
+    type: "POST",
+    complete: function(result) {
+      if ( result.statusText === 'OK' ) {
+        removeWordListeners()
+        console.log(result.responseJSON.word)
+        var wordId = result.responseJSON.word.id;
+        $(element)
+          .addClass("known-word")
+          .removeClass("new-word")
+          .attr("data-wordid", wordId)
+        addWordListeners();
+      }
+      updateCounters();
+    },
+    url: "/words.json",
+    data: JSON.stringify({ word: newKnownWord }),
+    contentType: "application/json",
+    dataType: "json"
+  });
+}
+
+function addRemaingWordsToKnown() {
+  $(".new-word").each(function() {
+    var word = this
+    createKnownWord(word);
+  });
+}
+
 function mouseEnterWord(){
-    $(this).next('.translation').show();
+  $(this).next('.translation').show();
 }
 
 function mouseLeaveWord()  {
@@ -98,6 +129,7 @@ function addWordListeners(){
 
   $(".known-word").on("click", toggleStudyKnownWord);
   $(".new-word").on("click", createStudyWord);
+  $('.add-remaining-to-known').on('click', addRemaingWordsToKnown);
 }
 
 
@@ -110,9 +142,10 @@ function removeWordListeners(){
 
   $(".known-word").off("click", toggleStudyKnownWord);
   $(".new-word").off("click", createStudyWord);
+  $('.add-remaining-to-known').off('click', addRemaingWordsToKnown);
 }
 
-$(document).ready(function() {
+$(document).on("page:load", function() {
   $('.translation').hide();
   addWordListeners();
   updateCounters();

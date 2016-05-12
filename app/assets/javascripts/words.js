@@ -7,6 +7,7 @@ $(document).ready(function(){
    $('.add-to-known').on('click', function(){
      var wordId = this.dataset.wordid;
      var button = this;
+     var KnownWordCount = parseInt(this.dataset.knowncount) + 1;
      $.ajax({
       type: "PATCH",
       async: true,
@@ -15,7 +16,9 @@ $(document).ready(function(){
         if ( result.responseText === 'success' ) {
           console.log("test");
           $(button).closest('.word-box').remove();
+          $(".add-to-known").attr("data-knowncount", KnownWordCount)  
         }
+        $('.header-words-count').html(KnownWordCount);
       },
       url: "/words/"+ wordId,
       data: JSON.stringify({ known: true }),
