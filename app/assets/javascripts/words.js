@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on("ready page:load", function(){
    $('.word-name').on('click', function(){
      $(this).next('.translation-form').toggle();
    });
@@ -16,7 +16,7 @@ $(document).ready(function(){
         if ( result.responseText === 'success' ) {
           console.log("test");
           $(button).closest('.word-box').remove();
-          $(".add-to-known").attr("data-knowncount", KnownWordCount)  
+          $(".add-to-known").attr("data-knowncount", KnownWordCount)
         }
         $('.header-words-count').html(KnownWordCount);
       },
