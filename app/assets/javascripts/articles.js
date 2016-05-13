@@ -56,9 +56,12 @@ function toggleStudyKnownWord(){
   var known = element.classList.contains("known-word");
   console.log("toggled:", wordId)
 
-  var wordTranslation = prompt("please enter translation for " + element.innerHTML);
-  if (wordTranslation === "" || wordTranslation === null) {
-    wordTranslation = prompt("you didn't entered any translation.\n please enter translation for " + element.innerHTML);
+  if(known && wordTranslation === ""){
+    var wordTranslation = prompt("please enter translation for " + element.innerHTML);
+    if (wordTranslation === "" || wordTranslation === null) {
+      wordTranslation = prompt("you didn't entered any translation.\n please enter translation for " + element.innerHTML);
+    }
+    $(this).next('.translation').text(wordTranslation)
   }
 
   $.ajax({
@@ -145,7 +148,7 @@ function removeWordListeners(){
   $('.add-remaining-to-known').off('click', addRemaingWordsToKnown);
 }
 
-$(document).on("page:load", function() {
+$(document).on("ready page:load", function() {
   $('.translation').hide();
   addWordListeners();
   updateCounters();

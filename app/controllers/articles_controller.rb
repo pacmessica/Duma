@@ -14,8 +14,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    article_params = params.require( :article ).permit( :title, :content, :image )
-    @article = Article.new( article_params )
+    article_params = params.require( :article ).permit( :title, :content, :image, :source )
+    @article = Article.new( article_params.merge(user:current_user) )
 
     if @article.save
       redirect_to articles_path
